@@ -1,0 +1,21 @@
+.ProductCart{
+    display: flex;
+    flex-direction: column
+}
+
+.ProductCart img{
+    width: 400px;
+}
+
+.ProductCart h3 {
+    font-family: Monaco, monospace;
+}
+
+.ProductCart p {
+    font-family:"Courier New", monospace;
+}
+
+.ProductCart h3,
+.ProductCart p {
+    margin: 0 0 0.5rem 0
+}
