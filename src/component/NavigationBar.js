@@ -5,7 +5,7 @@ import "./NavigationBar.css"
 
 export default class NavigationBar extends Component {
     render() {
-        const {isLoggedIn} = true;
+        const {isLoggedIn} = this.props;
         return (
             <div className="NavigationBar">
                 <Link to="/">home</Link>

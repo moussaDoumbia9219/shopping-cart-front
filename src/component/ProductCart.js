@@ -22,16 +22,11 @@ export default class ProductCart extends Component {
 
     render() {
         return (
-        <div className="ProductCart"
-            style={
-                this.props.pull ?
-                {alignSelf: 'flex-end'}: null
-            }
-        >
+            <div  className="ProductCart">
             <img
-            src={this.state.image}
-            onMouseOver={this.HandleHover}
-            onMouseLeave={this.HandleLeaveHover}
+                src={this.state.image}
+                onMouseOver={this.handleMouseOver}
+                onMouseLeave={this.handleMouseLeave}
             />
             <h3>{this.props.name}</h3>
             <p>{this.props.price}</p>

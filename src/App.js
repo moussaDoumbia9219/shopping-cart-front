@@ -10,13 +10,18 @@ import Category from "./pages/Category";
 import Account from './pages/Account';
 import NavigationBar from "./component/NavigationBar";
 class App extends Component {
-  
+  state = {
+    user: {undefined},
+  };
 
   render() {
+    const isLoggedIn = this.state.user && this.state.user._id;
     return (
       <Router>
         <div className="App">
-            <NavigationBar />
+            <NavigationBar
+              isLoggedIn={isLoggedIn}
+            />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/forms" exact component={FormDemo} />
@@ -24,6 +29,7 @@ class App extends Component {
               <Route path="/orders" exact component={Orders} />
               <Route path="/account" exact component={Account} />
               <Route path="/category/:slug"  component={Category} />
+              <Route path="/product/:id" component={this.ProductPage} />
               <Route component={NotFound} />
             </Switch>
         </div>
