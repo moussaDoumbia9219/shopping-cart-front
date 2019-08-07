@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ProductCart.css";
+import { SecondaryButton } from "./Button";
 
 export default class ProductCart extends Component {
     constructor(props) {
@@ -20,17 +21,25 @@ export default class ProductCart extends Component {
         });
     };
 
+    removeFomCart= ()=> {
+        this.props.removeFomCart(this.props.index)
+    }
+
     render() {
         return (
             <div  className="ProductCart">
-            <img
-                src={this.state.image}
-                onMouseOver={this.handleMouseOver}
-                onMouseLeave={this.handleMouseLeave}
-            />
-            <h3>{this.props.name}</h3>
-            <p>{this.props.price}</p>
-        </div>
+                <SecondaryButton onClick={this.removeFomCart}>
+                    remove from cart
+                </SecondaryButton>
+                <img
+                    src={this.state.image}
+                    onMouseOver={this.handleMouseOver}
+                    onMouseLeave={this.handleMouseLeave}
+                />
+                <h3>{this.props.name}</h3>
+                <p>{this.props.price}</p>
+                
+            </div>
         );
     }
 }

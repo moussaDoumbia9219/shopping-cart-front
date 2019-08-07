@@ -3,7 +3,7 @@ import LoadingIndicator from '../component/LoadingIndicator';
 import { getProduct } from '../api/Products';
 import ProductView from '../component/ProductView';
 
-export default class Product extends Component {
+class Product extends Component {
     state = {product: undefined, loading: true}
 
     componentDidMount = async () => {
@@ -18,7 +18,12 @@ export default class Product extends Component {
        }
 
        return (
-           <ProductView product={this.state.product} />
+           <ProductView 
+            product={this.state.product} 
+            addToCart={this.props.addToCart}
+            />
        )
     }
 }
+
+export default (addToCart) => (props) => <Product {...props} addToCart={addToCart} />;
