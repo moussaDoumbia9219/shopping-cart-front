@@ -21,16 +21,12 @@ export default class ProductCart extends Component {
         });
     };
 
-    removeFomCart= ()=> {
-        this.props.removeFomCart(this.props.index)
-    }
+    
 
     render() {
         return (
             <div  className="ProductCart">
-                <SecondaryButton onClick={this.removeFomCart}>
-                    remove from cart
-                </SecondaryButton>
+                
                 <img
                     src={this.state.image}
                     onMouseOver={this.handleMouseOver}
