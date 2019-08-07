@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getProducts } from '../api/Products';
 import LoadingIndicator from '../component/LoadingIndicator';
-import ProductList from '../component/ProductList';
+import ProductList from '../component/product/ProductList';
 
 export default class Category extends Component {
     state = {products: [], loading: true};

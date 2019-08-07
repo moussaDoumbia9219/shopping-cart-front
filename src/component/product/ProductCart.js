@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./ProductCart.css";
-import { SecondaryButton } from "./Button";
+import { SecondaryButton } from "../Button";
 
 export default class ProductCart extends Component {
     constructor(props) {

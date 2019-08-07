@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Product from '../models/Product';
-import ProductCart from '../component/ProductCart';
+import ProductCart from '../component/product/ProductCart';
 import { PrimaryButton, SecondaryButton } from '../component/Button';
 
 export default class Cart extends Component {

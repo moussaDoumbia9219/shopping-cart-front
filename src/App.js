@@ -11,6 +11,8 @@ import Category from "./pages/Category";
 import Account from './pages/Account';
 import NavigationBar from "./component/NavigationBar";
 import Product from "./pages/Product";
+import UserManagement from "./pages/admin/UserManagement"
+import ProductManagement from "./pages/admin/ProductManagement";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -68,8 +70,11 @@ class App extends Component {
               <Route path="/cart" exact component={props => <Cart {...props } items={this.state.itemsInCart} removeFomCart={this.removeFomCart} />} />
               <Route path="/orders" exact component={Orders} />
               <Route path="/account" exact component={Account} />
+              <Route path="/admin/users" exact component={UserManagement} />
+              <Route path="/admin/products" exact component={ProductManagement} />
               <Route path="/category/:slug"  component={Category} />
               <Route path="/product/:id" component={this.ProductPage} />
+              
               <Route component={NotFound} />
             </Switch>
         </div>
