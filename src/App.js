@@ -13,27 +13,38 @@ import NavigationBar from "./component/NavigationBar";
 import Product from "./pages/Product";
 import UserManagement from "./pages/admin/UserManagement"
 import ProductManagement from "./pages/admin/ProductManagement";
+import Auth from "./pages/Auth";
+import { getCurrentUser } from "./api/Auth";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       itemsInCart: store.get('itemsInCart') || [],
-      user: {_id: 123},
+      user: undefined,
     };
     this.ProductPage = Product(this.addToCart)
   }
 
   componentDidMount = () => {
+    this.authUser();
     document.addEventListener(
       'visibilitychange',
       () => {
         if(!document.hidden) {
           this.setState({
             itemsInCart: store.get('itemsInCart') || []
-          })
+          });
+          this.authUser();
         }
       }
     )
+  }
+
+  authUser = async () => {
+    const result = await getCurrentUser();
+    if(result && result.data) {
+      this.setState({user: result.data})
+    }
   }
   
 
@@ -66,6 +77,7 @@ class App extends Component {
             />
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/auth/:token" exact component={Auth(this.authUser)} />
               <Route path="/forms" exact component={FormDemo} />
               <Route path="/cart" exact component={props => <Cart {...props } items={this.state.itemsInCart} removeFomCart={this.removeFomCart} />} />
               <Route path="/orders" exact component={Orders} />
