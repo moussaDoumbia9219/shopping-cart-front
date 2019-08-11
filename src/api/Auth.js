@@ -16,7 +16,7 @@ export const getCurrentUser = async () => {
 
 export const login = async (email) => {
     try {
-        return await axios.post(
+        await axios.post(
             'v1/login',
             {email},
         );

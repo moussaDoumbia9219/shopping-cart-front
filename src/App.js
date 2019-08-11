@@ -44,6 +44,8 @@ class App extends Component {
     const result = await getCurrentUser();
     if(result && result.data) {
       this.setState({user: result.data})
+    } else {
+      this.setState({user: undefined})
     }
   }
   
@@ -56,8 +58,6 @@ class App extends Component {
   }
 
   removeFomCart = (index) => {
-    console.log(index);
-    
     const {itemsInCart}  = this.state;
     
     itemsInCart.splice(index, 1);
@@ -82,8 +82,10 @@ class App extends Component {
               <Route path="/cart" exact component={props => <Cart {...props } items={this.state.itemsInCart} removeFomCart={this.removeFomCart} />} />
               <Route path="/orders" exact component={Orders} />
               <Route path="/account" exact component={Account} />
-              <Route path="/admin/users" exact component={UserManagement} />
-              <Route path="/admin/products" exact component={ProductManagement} />
+              {isLoggedIn && this.state.user.role === 'admin' && 
+              <Route path="/admin/users" exact component={UserManagement} />}
+              {isLoggedIn && this.state.user.role=== 'admin' &&
+              <Route path="/admin/products" exact component={ProductManagement} />}
               <Route path="/category/:slug"  component={Category} />
               <Route path="/product/:id" component={this.ProductPage} />
               
