@@ -34,7 +34,12 @@ export default class ProductCart extends Component {
                 />
                 <h3>{this.props.name}</h3>
                 <p>{this.props.price}</p>
-                
+                {
+                    this.props.withRemoveButton &&
+                    <SecondaryButton onClick={this.props.onRemove} >
+                        remove 
+                    </SecondaryButton>
+                }
             </div>
         );
     }

@@ -61,7 +61,6 @@ class App extends Component {
     const {itemsInCart}  = this.state;
     
     itemsInCart.splice(index, 1);
-    console.log('array of items', itemsInCart);
     this.setState({itemsInCart});
     store.set('itemsInCart', itemsInCart);
   }
