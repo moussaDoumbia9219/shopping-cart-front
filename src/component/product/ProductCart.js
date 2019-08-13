@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./ProductCart.css";
 import { SecondaryButton } from "../Button";
-
+import PropTypes from 'prop-types';
 export default class ProductCart extends Component {
     constructor(props) {
         super(props);
@@ -43,4 +43,13 @@ export default class ProductCart extends Component {
             </div>
         );
     }
+}
+
+
+ProductCart.propTypes = {
+    name: PropTypes.string.isRequired,
+    price:PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string),
+    withRemoveButton: PropTypes.bool,
+    onRemove: PropTypes.func
 }

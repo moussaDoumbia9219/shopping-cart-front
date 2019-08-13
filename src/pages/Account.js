@@ -38,6 +38,7 @@ export default class Account extends Component {
                     <React.Fragment>
                         <Form onSubmit={this.handleSubmit}>
                             <TextInput 
+                                name="email"
                                 label="Email Adress"
                                 placeholder="e.g. anna.ryan@gmail.com"
                                 value={this.state.email}

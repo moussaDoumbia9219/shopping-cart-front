@@ -65,6 +65,12 @@ class App extends Component {
     store.set('itemsInCart', itemsInCart);
   }
 
+  emtpyCart = () => {
+    console.log('empty cart')
+    this.setState({itemsInCart: []});
+    store.set('itemsInCart', [])
+  }
+
   render() {
     const isLoggedIn = this.state.user && this.state.user._id;
     return (
@@ -78,7 +84,7 @@ class App extends Component {
               <Route path="/" exact component={Home} />
               <Route path="/auth/:token" exact component={Auth(this.authUser)} />
               <Route path="/forms" exact component={FormDemo} />
-              <Route path="/cart" exact component={props => <Cart {...props } items={this.state.itemsInCart} removeFomCart={this.removeFomCart} />} />
+              <Route path="/cart" exact render={props => <Cart {...props } items={this.state.itemsInCart} removeFomCart={this.removeFomCart} emtpyCart={this.emtpyCart} />} />
               <Route path="/orders" exact component={Orders} />
               <Route path="/account" exact component={Account} />
               {isLoggedIn && this.state.user.role === 'admin' && 
